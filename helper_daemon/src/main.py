@@ -18,9 +18,7 @@ def on_workspace_changed(screen, _):
     
     if current_active_window_id in previous_active_windows:
         previous_active_windows.remove(current_active_window_id)
-    previous_active_windows.append(current_active_window_id)
-    
-    previous_active_windows.reverse()
+    previous_active_windows.insert(0,current_active_window_id)
     
     print(previous_active_windows)
     with open("/dev/shm/prev_workspace", "w") as f:
